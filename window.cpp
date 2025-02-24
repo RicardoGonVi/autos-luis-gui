@@ -3,22 +3,41 @@
 #include "QImageButton.h"
 
 Window::Window(QWidget *parent) : QMainWindow(parent),  ui(new Ui::Window) {
+    /* Search button */
     QString search_IB_path = "../../images/searcher-magnifying-glass.png";
     QString search_IB_name= "BUSCAR";
-    QImageButton *search_IB = new QImageButton(this, search_IB_path, search_IB_name);
+    QString search_IB_bg_color = "D5E8D4";
+    QImageButtonSettings search_settings(search_IB_path, search_IB_name, search_IB_bg_color);
+    QImageButton *search_IB = new QImageButton(this, &search_settings);
 
+    /* Add button */
     QString add_IB_path = "../../images/add.png";
     QString add_IB_name= "AGREGAR";
-    QImageButton *add_IB = new QImageButton(this, add_IB_path, add_IB_name);
+    QString add_IB_bg_color = "FFE6CC";
+    QImageButtonSettings add_settings(add_IB_path, add_IB_name, add_IB_bg_color);
+    QImageButton *add_IB = new QImageButton(this, &add_settings);
 
+    /* Sell button */
     QString sell_IB_path = "../../images/sell.png";
     QString sell_IB_name= "VENDER";
-    QImageButton *sell_IB = new QImageButton(this, sell_IB_path, sell_IB_name);
+    QString sell_IB_bg_color = "B1DDF0";
+    QImageButtonSettings sell_settings(sell_IB_path, sell_IB_name, sell_IB_bg_color);
+    QImageButton *sell_IB = new QImageButton(this, &sell_settings);
 
+    /* List button */
     QString list_IB_path = "../../images/list.png";
     QString list_IB_name= "LISTAR";
-    QImageButton *list_IB = new QImageButton(this, list_IB_path, list_IB_name);
+    QString list_IB_bg_color = "F9F7ED";
+    QImageButtonSettings list_settings(list_IB_path, list_IB_name, list_IB_bg_color);
+    QImageButton *list_IB = new QImageButton(this, &list_settings);
 
+    /* Starting ImageButtons */
+    search_IB->StartImageButton();
+    add_IB->StartImageButton();
+    sell_IB->StartImageButton();
+    list_IB->StartImageButton();
+
+    /* Main Interface Setup */
     ui->setupUi(this);
     ui->horizontalLayout->addWidget(search_IB);
     ui->horizontalLayout->addWidget(add_IB);

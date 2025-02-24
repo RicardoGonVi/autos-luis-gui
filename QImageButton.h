@@ -3,18 +3,33 @@
 
 #include <QPushButton>
 
+struct QImageButtonSettings {
+  int image_width = 60;
+  int image_height = 60;
+  int button_width = 240;
+  int button_height = 100;
+  QString image_path = "../../images/none-image.png";
+  QString button_name = "";
+  QString button_color = "FFFFFF";
+
+  QImageButtonSettings(QString i_path = "../../images/none-image.png",
+                       QString b_name = "", QString b_color = "FFFFFF")
+      : image_path(i_path), button_name(b_name), button_color(b_color) {}
+};
+
 class QImageButton : public QPushButton {
-    Q_OBJECT
+  Q_OBJECT
 
 public:
-    explicit QImageButton(QWidget *parent = nullptr, const QString image_path = "../../images/none-image.png", const QString button_name = "", const int button_width = 240, const int button_height = 100, const int image_size = 60);
+  explicit QImageButton(QWidget *parent = nullptr,
+                        QImageButtonSettings *settings = nullptr);
+
+  bool StartImageButton();
 
 private:
-    int image_size_;
-    QPixmap image_;
-    QIcon image_icon_;
-    QString button_name_;
-    QString image_path_;
+  QImageButtonSettings *settings_;
+  QPixmap image_;
+  QIcon image_icon_;
 
 signals:
 };
