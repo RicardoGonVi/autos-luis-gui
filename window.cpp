@@ -61,6 +61,23 @@ Window::Window(QWidget *parent) : QMainWindow(parent), ui(new Ui::Window) {
   ui->horizontalLayout->addWidget(add_IB);
   ui->horizontalLayout->addWidget(sell_IB);
   ui->horizontalLayout->addWidget(list_IB);
+
+  /* Main Interface Setup */
+  ui->setupUi(this);
+  ui->horizontalLayout->addWidget(search_IB);
+  ui->horizontalLayout->addWidget(add_IB);
+  ui->horizontalLayout->addWidget(sell_IB);
+  ui->horizontalLayout->addWidget(list_IB);
+
+  /* Status Bar */
+  // ui->statusbar->showMessage("CARROS DISPONIBLES: XXXX  |   GNC: YYYY  |   EN
+  // TALLER: ZZZ  |  RESERVADOS: AA ");
+  QLabel *statusLabel = new QLabel("CARROS DISPONIBLES: XXXX  |   GNC: YYYY  | "
+                                   "  EN TALLER: ZZZ  |  RESERVADOS: AA ");
+  statusLabel->setAlignment(Qt::AlignCenter); // Center the text
+  statusLabel->setStyleSheet("color: #000000; background-color: #769BD1; "
+                             "font-family: Georgia; font-size: 14px;");
+  ui->statusbar->addPermanentWidget(statusLabel, 1); // The '1' makes it expand
 }
 
 Window::~Window() { delete ui; }
