@@ -1,5 +1,6 @@
 #include "window.h"
 #include "./ui_window.h"
+#include "QFooterDisplayBar.h"
 #include "QImageButton.h"
 
 Window::Window(QWidget *parent) : QMainWindow(parent), ui(new Ui::Window) {
@@ -62,6 +63,22 @@ Window::Window(QWidget *parent) : QMainWindow(parent), ui(new Ui::Window) {
   ui->horizontalLayout->addWidget(sell_IB);
   ui->horizontalLayout->addWidget(list_IB);
 
+  /* Status Bar */
+  /* TODO: update label placeholder */
+  QString footer_label = "CARROS DISPONIBLES: XXXX  |   GNC: YYYY  |   EN "
+                         "TALLER: ZZZ  |  RESERVADOS: AA ";
+  QFooterDisplayBarSettings footer_settings(footer_label);
+  QFooterDisplayBar *footer = new QFooterDisplayBar(this, &footer_settings);
+
+  /* Starting ImageButtons */
+  search_IB->StartImageButton();
+  add_IB->StartImageButton();
+  sell_IB->StartImageButton();
+  list_IB->StartImageButton();
+
+  /* Starting Footer Display Bar */
+  footer->StartFooterDisplayBar();
+
   /* Main Interface Setup */
   ui->setupUi(this);
   ui->horizontalLayout->addWidget(search_IB);
@@ -70,14 +87,7 @@ Window::Window(QWidget *parent) : QMainWindow(parent), ui(new Ui::Window) {
   ui->horizontalLayout->addWidget(list_IB);
 
   /* Status Bar */
-  // ui->statusbar->showMessage("CARROS DISPONIBLES: XXXX  |   GNC: YYYY  |   EN
-  // TALLER: ZZZ  |  RESERVADOS: AA ");
-  QLabel *statusLabel = new QLabel("CARROS DISPONIBLES: XXXX  |   GNC: YYYY  | "
-                                   "  EN TALLER: ZZZ  |  RESERVADOS: AA ");
-  statusLabel->setAlignment(Qt::AlignCenter); // Center the text
-  statusLabel->setStyleSheet("color: #000000; background-color: #769BD1; "
-                             "font-family: Georgia; font-size: 14px;");
-  ui->statusbar->addPermanentWidget(statusLabel, 1); // The '1' makes it expand
+  ui->statusbar->addPermanentWidget(footer, 1);
 }
 
 Window::~Window() { delete ui; }
