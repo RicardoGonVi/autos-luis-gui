@@ -4,8 +4,7 @@
 
 QImageButton::QImageButton(QWidget *parent,
                            std::shared_ptr<QImageButtonSettings> settings)
-    : QPushButton{parent}, settings_(settings) {
-}
+    : QPushButton{parent}, settings_(settings) {}
 
 bool QImageButton::StartImageButton() {
   bool error = false;
