@@ -2,7 +2,8 @@
 
 #include <QPixmap>
 
-QImageButton::QImageButton(QWidget *parent, QImageButtonSettings *settings)
+QImageButton::QImageButton(QWidget *parent,
+                           std::shared_ptr<QImageButtonSettings> settings)
     : QPushButton{parent}, settings_(settings) {
   QPixmap image(settings->image_path);
   QIcon image_icon(image);

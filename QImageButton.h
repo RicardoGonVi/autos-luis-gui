@@ -22,9 +22,9 @@ class QImageButton : public QPushButton {
   Q_OBJECT
 
 public:
-  explicit QImageButton(QWidget *parent = nullptr,
-                        QImageButtonSettings *settings = nullptr);
-
+  explicit QImageButton(
+      QWidget *parent = nullptr,
+      std::shared_ptr<QImageButtonSettings> settings = nullptr);
   bool StartImageButton();
 
   void AttachToWindow(QTransitionWindow *window);
@@ -32,7 +32,7 @@ public:
   void OpenWindow(QTransitionWindow *window);
 
 private:
-  QImageButtonSettings *settings_;
+  std::shared_ptr<QImageButtonSettings>(settings_);
   QPixmap image_;
   QIcon image_icon_;
 
