@@ -24,6 +24,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         QImageButton.h QImageButton.cpp
+        Windows/QtransitionWindow.h Windows/QTansitionWindow.cpp Windows/QTransitionWindow.ui
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET gui-interface APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

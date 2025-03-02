@@ -38,3 +38,10 @@ bool QImageButton::StartImageButton() {
 
   return error;
 }
+
+void QImageButton::AttachToWindow(QTransitionWindow *window) {
+  connect(this, &QPushButton::clicked, this,
+          [=]() { this->OpenWindow(window); });
+}
+
+void QImageButton::OpenWindow(QTransitionWindow *window) { window->show(); }

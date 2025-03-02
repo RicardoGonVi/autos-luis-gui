@@ -1,6 +1,7 @@
 #ifndef QIMAGEBUTTON_H
 #define QIMAGEBUTTON_H
 
+#include "Windows/QtransitionWindow.h"
 #include <QPushButton>
 
 struct QImageButtonSettings {
@@ -25,6 +26,10 @@ public:
                         QImageButtonSettings *settings = nullptr);
 
   bool StartImageButton();
+
+  void AttachToWindow(QTransitionWindow *window);
+
+  void OpenWindow(QTransitionWindow *window);
 
 private:
   QImageButtonSettings *settings_;
