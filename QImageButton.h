@@ -33,8 +33,6 @@ public:
 
 private:
   std::shared_ptr<QImageButtonSettings>(settings_);
-  QPixmap image_;
-  QIcon image_icon_;
 
 signals:
 };

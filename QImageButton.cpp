@@ -5,28 +5,25 @@
 QImageButton::QImageButton(QWidget *parent,
                            std::shared_ptr<QImageButtonSettings> settings)
     : QPushButton{parent}, settings_(settings) {
-  QPixmap image(settings->image_path);
-  QIcon image_icon(image);
-
-  this->image_ = image;
-  this->image_icon_ = image_icon;
 }
 
 bool QImageButton::StartImageButton() {
   bool error = false;
-  QString button_style =
-      "QPushButton { color: black; background-color: #" +
-      this->settings_->button_color +
-      "; font-family: Georgia; font-size: 25px; text-align: center; "
-      "padding: 10px; margin: 20px;}";
 
   if (settings_ == nullptr) {
     error = true;
     return error;
   }
 
-  setIcon(this->image_icon_);
-  setIconSize(image_
+  QPixmap image(this->settings_->image_path);
+  QString button_style =
+      "QPushButton { color: black; background-color: #" +
+      this->settings_->button_color +
+      "; font-family: Georgia; font-size: 25px; text-align: center; "
+      "padding: 10px; margin: 20px;}";
+
+  setIcon(QIcon(image));
+  setIconSize(image
                   .scaled(this->settings_->image_height,
                           this->settings_->image_width, Qt::IgnoreAspectRatio,
                           Qt::FastTransformation)
