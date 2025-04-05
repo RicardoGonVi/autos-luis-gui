@@ -67,8 +67,9 @@ Window::Window(QWidget *parent) : QMainWindow(parent), ui(new Ui::Window) {
   /* TODO: update label placeholder */
   QString footer_label = "CARROS DISPONIBLES: XXXX  |   GNC: YYYY  |   EN "
                          "TALLER: ZZZ  |  RESERVADOS: AA ";
-  QFooterDisplayBarSettings footer_settings(footer_label);
-  QFooterDisplayBar *footer = new QFooterDisplayBar(this, &footer_settings);
+  std::shared_ptr<QFooterDisplayBarSettings> footer_settings =
+      std::make_shared<QFooterDisplayBarSettings>(footer_label);
+  QFooterDisplayBar *footer = new QFooterDisplayBar(this, footer_settings);
 
   /* Starting ImageButtons */
   search_IB->StartImageButton();

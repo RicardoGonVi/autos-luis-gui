@@ -21,12 +21,12 @@ class QFooterDisplayBar : public QWidget {
   Q_OBJECT
 public:
   explicit QFooterDisplayBar(QWidget *parent = nullptr,
-                             QFooterDisplayBarSettings *settings = nullptr);
+                             std::shared_ptr<QFooterDisplayBarSettings> = nullptr);
 
   bool StartFooterDisplayBar();
 
 private:
-  QFooterDisplayBarSettings *settings_;
+  std::shared_ptr<QFooterDisplayBarSettings> settings_;
 signals:
 };
 

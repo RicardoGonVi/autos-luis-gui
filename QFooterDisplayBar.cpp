@@ -3,7 +3,7 @@
 #include <QVBoxLayout>
 
 QFooterDisplayBar::QFooterDisplayBar(QWidget *parent,
-                                     QFooterDisplayBarSettings *settings)
+                                     std::shared_ptr<QFooterDisplayBarSettings> settings)
     : QWidget{parent}, settings_(settings) {}
 
 bool QFooterDisplayBar::StartFooterDisplayBar() {
