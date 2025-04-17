@@ -1,7 +1,7 @@
 #ifndef QIMAGEBUTTON_H
 #define QIMAGEBUTTON_H
 
-#include "Windows/QtransitionWindow.h"
+#include "Windows/QTransitionWindow.h"
 #include <QPushButton>
 
 struct QImageButtonSettings {
@@ -11,10 +11,10 @@ struct QImageButtonSettings {
   int button_height = 100;
   QString image_path = "../../images/none-image.png";
   QString button_name = "";
-  QString button_color = "FFFFFF";
+  QString button_color = "3F3F3F";
 
   QImageButtonSettings(QString i_path = "../../images/none-image.png",
-                       QString b_name = "", QString b_color = "FFFFFF")
+                       QString b_name = "", QString b_color = "3F3F3F")
       : image_path(i_path), button_name(b_name), button_color(b_color) {}
 };
 
@@ -59,9 +59,30 @@ public:
   void OpenWindow(QTransitionWindow *window);
 
 private:
+  /**
+   * @brief settings_:
+   *
+   * Setting of the QImageButton class. The settings are definable and
+   * not-defined:
+   *
+   * Definable settings:
+   * @param i_path: receives the image path as a Qstring to be used with the
+   * button
+   * @param b_name: sets the button name as a Qstring to be displayed.
+   * @param b_color: receives as a Qstring the button color in hex format.
+   * Example: F0FF01
+   *
+   * Not-defined settings:
+   * @param image_height = int value that defines the height of the image to be
+   * shown in the button. Initial value: 60;
+   * @param image_width = int value that defines the width of the image to be
+   * shown in the button. Initial value: 240;
+   * @param button_height = int value that defines the height of the button.
+   * Initial value: 100;
+   * @param button_width = int value that defines the width of the button.
+   * Initial value: 240;
+   */
   std::shared_ptr<QImageButtonSettings>(settings_);
-
-signals:
 };
 
 #endif // QIMAGEBUTTON_H
