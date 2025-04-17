@@ -29,6 +29,13 @@ public:
    */
   void AddButton(QPushButton *button);
 
+  /**
+   * @brief SetText: QTransitionWindow method that addas a text label to the window.
+   * it.
+   * @param text: Text to be added to the window.
+   */
+  void SetText(QString text);
+
 private:
   /**
    * @brief ui: user interface window

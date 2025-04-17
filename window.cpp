@@ -31,6 +31,9 @@ Window::Window(QWidget *parent) : QMainWindow(parent), ui(new Ui::Window) {
   QString search_window_mechanic_IB_name = "MECÁNICOS";
   QString search_window_owner_IB_name = "DUEÑOS";
 
+  /* Window label */
+  QString search_window_label = "¿Qué desea buscar?";
+
   /* Footer label */
   QString footer_label = "CARROS DISPONIBLES: XXXX  |   GNC: YYYY  |   EN "
                          "TALLER: ZZZ  |  RESERVADOS: AA ";
@@ -110,6 +113,8 @@ Window::Window(QWidget *parent) : QMainWindow(parent), ui(new Ui::Window) {
   list_IB->AttachToWindow(list_window);
 
   /* Adding Buttons to Transition windows */
+  search_window->SetText(search_window_label);
+
   search_window->AddButton(search_window_car_IB);
   search_window->AddButton(search_window_lawyer_IB);
   search_window->AddButton(search_window_client_IB);
