@@ -24,7 +24,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         QImageButton.h QImageButton.cpp
-        Windows/QtransitionWindow.h Windows/QTansitionWindow.cpp Windows/QTransitionWindow.ui
+        Windows/QTransitionWindow.h Windows/QTansitionWindow.cpp Windows/QTransitionWindow.ui
         QFooterDisplayBar.h QFooterDisplayBar.cpp
     )
 # Define target properties for Android with Qt 6 as:
